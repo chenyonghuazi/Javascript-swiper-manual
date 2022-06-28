@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.icon{
+    width: 100%;
+    height:100%;
+}
+
+.container{
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 100px auto;
+    background-color: rgb(240, 199, 122);
+    overflow: hidden;
+
+    //左右按钮
+    .btn {
+        position: absolute;
+        width: 60px;
+        height:60px;
+        top:200px - 30;
+        z-index: 9999;
+        display: none;
+    }
+
+    .btn_left{
+        
+        left:0
+    }
+
+    .btn_right{
+        
+        right:0
+    }
+
+
+    //分页小圆圈
+    .pageNavigator{
+        // list-style-type: circle;
+        // color: white;
+        
+        position: absolute;
+        bottom: 3px;
+        left: 300px - 44;
+
+        height:21px;
+        
+
+        li{
+            
+            display: inline-block;
+            width:10px;
+            height:10px;
+            
+            border: 1px solid white;
+            border-radius: 5px;
+
+            margin: 0 5px;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        //当前页小圆圈
+        .currentPage{
+            list-style-type: disc; //实心圆
+            background-color: white;
+        }
+    }
+    
+
+
+    //轮播图
+    .content{
+        position: relative;
+        width: 600%;
+        height: 100%;
+        background-color: blue;
+        list-style-type: none;
+
+        li{
+            float: left;
+            width: 600px;
+            height: 100%;
+        }
+
+        img{
+            width: 600px;
+            height: 100%;
+        }
+    }
+}

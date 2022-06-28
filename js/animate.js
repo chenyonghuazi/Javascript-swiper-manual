@@ -21,3 +21,4 @@ function animate(obj, target, callback){
         obj.style.left = offsetX + moving + 'px';
     },30);
 }
+
