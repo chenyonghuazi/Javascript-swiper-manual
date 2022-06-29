@@ -11,6 +11,8 @@ window.addEventListener('load',function(){
         
         var li = document.createElement('li');
 
+        li.setAttribute('index',i.toString());
+
         ol?.appendChild(li);
         
         li.addEventListener('click',function(){
@@ -21,10 +23,12 @@ window.addEventListener('load',function(){
                 ol.children[i].className = '';
             }
             this.className = 'currentPage';
+            const index = this.getAttribute('index');
+            animate(ul,parseInt(index) * -600)
         })
     }
 
-    // @ts-ignore
+    // @ts-ignore 初始化样式
     ol.children[0].className = 'currentPage';
 
     //按钮点击监听-------------------------------------------------
@@ -95,7 +99,7 @@ window.addEventListener('load',function(){
         ol.children[newIndex].className = 'currentPage';
     });
 
-    //显示or隐藏按钮 mouseover，mouseleave监听事件----------------------
+    //显示or隐藏按钮的mouseover，mouseleave监听事件----------------------
     const container = document.querySelector('.container'); //整个轮播图的框架
 
     container?.addEventListener('mouseover',function(){
