@@ -30,6 +30,10 @@ window.addEventListener('load',function(){
 
     // @ts-ignore 初始化样式
     ol.children[0].className = 'currentPage';
+    //复制第一张图
+    var firstChild = ul?.children[0].cloneNode(true)
+    //添加第一张图到最后面 以达到无缝按右键
+    ul?.appendChild(firstChild)
 
     //按钮点击监听-------------------------------------------------
     const btn_left = document.querySelector('.btn_left');
@@ -80,7 +84,7 @@ window.addEventListener('load',function(){
             if(ol?.children[i].className == 'currentPage'){
                 
                 // @ts-ignore //已经到头啦！如果已经最右边了就不能再点了
-                if(i == ol?.children.length -1) return; 
+                //if(i == ol?.children.length -1) newIndex = -1; 
 
                 //新的移动量
                 offset = (i+1) * -600;
@@ -96,7 +100,7 @@ window.addEventListener('load',function(){
         animate(ul,offset);
 
         // @ts-ignore //给下一个新圆圈加上新的样式
-        ol.children[newIndex].className = 'currentPage';
+        ol.children[newIndex == ol?.children.length? 0 : newIndex].className = 'currentPage';
     });
 
     //显示or隐藏按钮的mouseover，mouseleave监听事件----------------------
