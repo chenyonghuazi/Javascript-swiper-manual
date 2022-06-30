@@ -18,7 +18,8 @@ window.addEventListener('load',function(){
         li.addEventListener('click',function(){
             
             // @ts-ignore
-            for (var i = 0; i < ul?.children.length; i++){
+            for (var i = 0; i < ol?.children.length; i++){
+                
                 // @ts-ignore
                 ol.children[i].className = '';
             }
@@ -112,6 +113,10 @@ window.addEventListener('load',function(){
         btn_left.style.display = 'block';
         // @ts-ignore
         btn_right.style.display = 'block';
+        // @ts-ignore
+        clearInterval(timer);
+        // @ts-ignore
+        timer = null;
     })
 
     container?.addEventListener('mouseleave',function(){
@@ -120,6 +125,17 @@ window.addEventListener('load',function(){
         btn_left.style.display = 'none';
         // @ts-ignore
         btn_right.style.display = 'none';
+        // @ts-ignore
+        timer = setInterval(function(){
+            // @ts-ignore
+            btn_right.click();
+        },3000);
     })
+
+    //自动播放----------------
+    var timer = setInterval(function(){
+        // @ts-ignore
+        btn_right.click();
+    },3000);
 
 })
